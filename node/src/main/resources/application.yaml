@@ -1,0 +1,32 @@
+server:
+  port: ${NODE_PORT:8082}
+
+spring:
+  rabbitmq:
+    host: ${RABBIT_HOST:localhost}
+    port: ${RABBIT_PORT:5672}
+    username: ${RABBIT_USERNAME:userok}
+    password: ${RABBIT_PASSWORD:password}
+    queues:
+      text-message-update: ${RABBIT_TEXT_MESSAGE_UPDATE_QUEUE}
+      doc-message-update: ${RABBIT_DOC_MESSAGE_UPDATE_QUEUE}
+      photo-message-update: ${RABBIT_PHOTO_MESSAGE_UPDATE_QUEUE}
+      answer-message: ${RABBIT_ANSWER_MESSAGE_QUEUE}
+      registration-mail: ${RABBIT_REGISTRATION_MAIL_QUEUE}
+  datasource:
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5400/sbcs}
+    username: ${POSTGRES_USERNAME:userok}
+    password: ${POSTGRES_PASSWORD:password}
+  jpa:
+    generate-ddl: true
+
+token: ${TG_BOT_TOKEN}
+service:
+  file_info:
+    uri: ${TG_BOT_FILE_INFO_URI}
+  file_storage:
+    uri: ${TG_BOT_FILE_STORAGE_URI}
+
+link:
+  address: ${HOST_URL:localhost}:${REST_PORT:8083}
+salt: ${SALT:test}
