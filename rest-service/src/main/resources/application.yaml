@@ -1,0 +1,11 @@
+server:
+  port: ${REST_SERVICE_PORT:8083}
+spring:
+  datasource:
+    url: ${POSTGRES_URL:jdbc:postgresql://localhost:5400/sbcs}
+    username: ${POSTGRES_USERNAME:userok}
+    password: ${POSTGRES_PASSWORD:password}
+  jpa:
+    generate-ddl: true
+
+salt: ${SALT:test}
